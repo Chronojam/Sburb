@@ -52,7 +52,7 @@ public class Quad : Spatial
     {
         MeshNode = new MeshInstance();
         MeshNode.Name = Name + "_Mesh";
-        MeshNode.MaterialOverride = ResourceLoader.Load<ShaderMaterial>("res://planets/Default.tres");
+        MeshNode.MaterialOverride = ResourceLoader.Load<ShaderMaterial>("res://Planet/Default.tres");
 
         ChildNode = new Spatial();
         ChildNode.Name = Name + "_Children";
@@ -126,6 +126,10 @@ public class Quad : Spatial
             }
 
         }
+
+        // Cant merge if you dont have a parent!
+        if (_parent == null)
+            return;
 
         // Only merge if we're out of range of every point.
         if (mergeVote == LODPoints.Length) {
@@ -231,6 +235,7 @@ public class Quad : Spatial
         arrMesh.AddSurfaceFromArrays(Mesh.PrimitiveType.Triangles, arr);
 
         MeshNode.Mesh = arrMesh;
+        MeshNode.CreateTrimeshCollision(); // Add some collisions
         return vertices;
     }
     public int Index(int x, int y) {
