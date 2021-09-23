@@ -32,9 +32,9 @@ func _input(event):
 			BUTTON_RIGHT: # Only allows rotation if right click down
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if event.pressed else Input.MOUSE_MODE_VISIBLE)
 			BUTTON_WHEEL_UP: # Increases max velocity
-				_vel_multiplier = clamp(_vel_multiplier * 2.0, 0.2, 200)
+				_vel_multiplier = clamp(_vel_multiplier * 2.0, 0.2, 2000)
 			BUTTON_WHEEL_DOWN: # Decereases max velocity
-				_vel_multiplier = clamp(_vel_multiplier / 2.0, 0.2, 200)
+				_vel_multiplier = clamp(_vel_multiplier / 2.0, 0.2, 2000)
 
 	# Receives key input
 	if event is InputEventKey:

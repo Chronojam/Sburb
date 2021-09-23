@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-[Tool]
-public class Planet : Spatial
+public abstract class Planet : Spatial
 {
     (Vector3 up, Vector3 forward, Vector3 right)[] Faces = {
         (Vector3.Up, Vector3.Forward, Vector3.Right),
@@ -15,25 +14,12 @@ public class Planet : Spatial
 
     private String _name;
     private PlanetaryInfluence _inflence;
-
-    private OpenSimplexNoise _noise;
-
     public Planet() {
-        Defaults();
-    }
-
-    public Planet(Noun one, Noun two) {
-        _name = "Land of " + one.Name + " and " + two.Name;
         Defaults();
     }
 
     private void Defaults() {
         _inflence = new PlanetaryInfluence(this);
-
-        _noise = new OpenSimplexNoise();
-        _noise.Octaves = 4;
-        _noise.Period = 20.0f;
-        _noise.Persistence = 0.8f;
     }
 
     public Vector3[] GetCorners(Vector3 a, Vector3 b, Vector3 c)  {
@@ -55,7 +41,7 @@ public class Planet : Spatial
     }
     public override void _Ready()
     {
-        var cam = GetNode<Camera>("../Camera");
+        var cam = GetNode<Camera>("/Foo/Camera");
         if (cam != null) {
             Console.WriteLine("Found Camera");
         }
@@ -72,7 +58,8 @@ public class Planet : Spatial
 
         for( int i = 0; i < 6; i++) {
             var thing = Faces[i];
-            var p = new Quad(null, cam, 11, 0, GetCorners(thing.up, thing.forward, thing.right), new Color(1,1,1,1));
+            // 11
+            var p = new Quad(null, cam, 3, 0, GetCorners(thing.up, thing.forward, thing.right), new Color(1,1,1,1));
             p.Scale = Scale;
             p.Name = "TopLevel_" + i;
             AddChild(p);
