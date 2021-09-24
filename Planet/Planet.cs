@@ -39,27 +39,29 @@ public abstract class Planet : Spatial
             }
         }
     }
+
     public override void _Ready()
     {
-        var cam = GetNode<Camera>("/Foo/Camera");
+        var cam = GetNode<Camera>("/root/Foo/Camera");
         if (cam != null) {
             Console.WriteLine("Found Camera");
         }
-        Quad.LODLevels = new float[]
+
+        var LODLevels = new float[]
         {
-            3200f,
-            1600f,
-            800f,
-            400f,
-            200f,
-            100f,
-            50f,
+            64f * this.Scale.Length(),
+            32f * this.Scale.Length(),
+            16f * this.Scale.Length(),
+            8f * this.Scale.Length(),
         };
 
+
+        // TODO different planets need different quad implementations
+        // How do?
         for( int i = 0; i < 6; i++) {
             var thing = Faces[i];
             // 11
-            var p = new Quad(null, cam, 3, 0, GetCorners(thing.up, thing.forward, thing.right), new Color(1,1,1,1));
+            var p = new Quad(null, cam, 3, 0, GetCorners(thing.up, thing.forward, thing.right), new Color(1,1,1,1), LODLevels);
             p.Scale = Scale;
             p.Name = "TopLevel_" + i;
             AddChild(p);

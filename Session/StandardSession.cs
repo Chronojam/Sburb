@@ -42,7 +42,7 @@ public class StandardSession : Session
         float stepVal = 0f;
 
         var planetSpacer = new Spatial();
-        AddChild(planetSpacer);
+        
 
         // Add the player's planets
         foreach (PlayerInfo p in _playerInfos) {
@@ -64,6 +64,7 @@ public class StandardSession : Session
         Derse.Scale = new Vector3(10,10,10);
         DerseOrbit.AddChild(Derse);
 
+        AddChild(planetSpacer);
         AddChild(Skaia);
         AddChild(ProspitOrbit);
         AddChild(OuterRing);

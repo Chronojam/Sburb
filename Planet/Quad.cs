@@ -12,7 +12,7 @@ using Godot;
 public class Quad : Spatial
 {
     //public static Dictionary<int, float> LODLevels;
-    public static float[] LODLevels;
+    private float[] _LODLevels;
     static Color[] ChildColors = new Color[4] {
         new Color(1, 0, 0, 1),
         new Color(0, 1, 0, 1),
@@ -38,13 +38,14 @@ public class Quad : Spatial
     // Subdivide/merge vote
     private bool voteToMerge;
         
-    public Quad(Quad parent, Spatial LODTarget, int size, int depth, Vector3[] corners, Color color) {
+    public Quad(Quad parent, Spatial LODTarget, int size, int depth, Vector3[] corners, Color color, float[] LODLevels) {
         this._size = size;
         this._color = color;
         this._depth = depth;
         this._parent = parent;
         this._corners = corners;
         this._lodtarget = LODTarget;
+        this._LODLevels = LODLevels;
     }
 
     // Called when the node enters the scene tree for the first time.
@@ -113,12 +114,12 @@ public class Quad : Spatial
         foreach(Spatial lodPoint in LODPoints) {
             var distance = Mathf.Abs(lodPoint.GlobalTransform.origin.DistanceTo(target));
             // distance > parent's LOD
-            if (_parent != null && distance > LODLevels[_depth - 1] + 10) {
+            if (_parent != null && distance > _LODLevels[_depth - 1] + 10) {
                 mergeVote++;
                 continue;
             }
             // distance < child's LOD
-            if (LODLevels.Length > _depth + 1 && distance < LODLevels[_depth + 1] - 10) {
+            if (_LODLevels.Length > _depth + 1 && distance < _LODLevels[_depth + 1] - 10) {
                 Subdivide();
                 // If we choose to subdivide, theres no point going
                 // any further.
@@ -244,7 +245,7 @@ public class Quad : Spatial
     public void Subdivide()
     {
         for (int i = 0; i < CHILD_COUNT; i ++) {
-            var child = new Quad(this, _lodtarget, _size, _depth + 1, childCorners[i], ChildColors[i]);
+            var child = new Quad(this, _lodtarget, _size, _depth + 1, childCorners[i], ChildColors[i], _LODLevels);
             child.Name = "Child_" + i;
             ChildNode.AddChild(child);
         }
