@@ -34,7 +34,12 @@ class Lobby : Node {
             return;
         }
 
-        Players.Add(id, new PlayerInfo());
+        // By default
+        Players.Add(id, new PlayerInfo(
+            new Bard(),
+            new BloodAspect(),
+            new ClassicalElementAir()
+        ));
         // Call this manually here, as we're only adding on the server
         // side, rather than explictly setting the list.
         updateUI();

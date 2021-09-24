@@ -12,10 +12,10 @@ public class StandardSession : Session
 
     public StandardSession() {
         var p = new List<PlayerInfo>();
-        p.Add(new PlayerInfo());
-        p.Add(new PlayerInfo());
-        p.Add(new PlayerInfo());
-        p.Add(new PlayerInfo());
+        p.Add(new PlayerInfo(new Page(), new DoomAspect(), new ClassicalElementAir()));
+        p.Add(new PlayerInfo(new Heir(), new SpaceAspect(), new ClassicalElementEarth()));
+        p.Add(new PlayerInfo(new Rogue(), new VoidAspect(), new ClassicalElementWater()));
+        p.Add(new PlayerInfo(new Witch(), new RageAspect(), new ClassicalElementFire()));
         _constructMedium(p);
     }
     public StandardSession(List<PlayerInfo> _playerInfos) {
@@ -46,12 +46,8 @@ public class StandardSession : Session
 
         // Add the player's planets
         foreach (PlayerInfo p in _playerInfos) {
-            // Do stuff with playerinfo to create a unique planet for
-            // each player.
-            //planetSpacer.Rotate(Vector3.Up, stepRadians);
-
             var stepRadians = (stepVal / 180) * Mathf.Pi;
-            var planet = new PlayerPlanet();
+            var planet = new PlayerPlanet(random, p);
             planetSpacer.AddChild(planet);
 
             planet.Translate(Vector3.Left.Rotated(Vector3.Up, stepRadians) * Skaia.Scale * playerRadius);
