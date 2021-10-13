@@ -1,0 +1,38 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Splitter" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorSelector" type="VBoxContainer" parent="Splitter"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 32.0
+margin_bottom = 600.0
+
+[node name="Label" type="Label" parent="Splitter/FloorSelector"]
+margin_right = 32.0
+margin_bottom = 14.0
+text = "Floor"
+
+[node name="Up" type="Button" parent="Splitter/FloorSelector"]
+margin_top = 18.0
+margin_right = 32.0
+margin_bottom = 38.0
+text = "+"
+
+[node name="Down" type="Button" parent="Splitter/FloorSelector"]
+margin_top = 42.0
+margin_right = 32.0
+margin_bottom = 62.0
+text = "-"

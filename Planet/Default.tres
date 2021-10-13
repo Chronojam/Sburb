@@ -1,37 +1,21 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="VisualShaderNodeInput" id=1]
-input_name = "color"
-
-[sub_resource type="VisualShader" id=2]
-code = "shader_type spatial;
-render_mode specular_schlick_ggx;
-
-
-
-
-void vertex() {
-// Output:0
-
-}
-
-void fragment() {
-// Input:2
-	vec3 n_out2p0 = COLOR.rgb;
-
-// Output:0
-	ALBEDO = n_out2p0;
-
-}
-
-void light() {
-// Output:0
-
-}
-"
-nodes/fragment/2/node = SubResource( 1 )
-nodes/fragment/2/position = Vector2( 40, 180 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+[ext_resource path="res://Assets/Shaders/FlexibleToonShader.shader" type="Shader" id=1]
 
 [resource]
-shader = SubResource( 2 )
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0.27451, 0.592157, 0.415686, 1 )
+shader_param/clamp_diffuse_to_max = false
+shader_param/cuts = 5
+shader_param/wrap = 0.0
+shader_param/steepness = 1.5
+shader_param/use_attenuation = false
+shader_param/use_specular = false
+shader_param/specular_strength = 0.0
+shader_param/specular_shininess = 0.0
+shader_param/use_rim = true
+shader_param/rim_width = 8.0
+shader_param/rim_color = Color( 1, 1, 1, 1 )
+shader_param/use_ramp = false
+shader_param/use_borders = false
+shader_param/border_width = 0.01

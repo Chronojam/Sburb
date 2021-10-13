@@ -1,0 +1,364 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Aspects/Space.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Aspects/Time.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Aspects/Blood.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Aspects/Breath.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Aspects/Hope.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Aspects/Life.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Aspects/Light.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Aspects/Mind.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Aspects/Rage.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Aspects/Void.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Aspects/Doom.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Aspects/Heart.png" type="Texture" id=12]
+[ext_resource path="res://Screens/Lobby/Lobby.cs" type="Script" id=13]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Splitter" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftPanel" type="VBoxContainer" parent="Splitter"]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Splitter/LeftPanel"]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Splitter/LeftPanel/VBoxContainer"]
+margin_right = 510.0
+margin_bottom = 496.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Selection" type="VBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Splitter" type="HBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection"]
+margin_right = 510.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fields" type="VBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Splitter"]
+margin_right = 510.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="HBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Splitter/Fields"]
+margin_right = 510.0
+margin_bottom = 14.0
+
+[node name="Name" type="Label" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Splitter/Fields/Name"]
+margin_right = 46.0
+margin_bottom = 14.0
+text = "Name: "
+
+[node name="Value" type="TextEdit" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Splitter/Fields/Name"]
+margin_left = 50.0
+margin_right = 510.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="House" type="HBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Splitter/Fields"]
+margin_top = 18.0
+margin_right = 510.0
+margin_bottom = 38.0
+
+[node name="Name" type="Label" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Splitter/Fields/House"]
+margin_top = 3.0
+margin_right = 83.0
+margin_bottom = 17.0
+text = "House Type: "
+
+[node name="OptionButton" type="OptionButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Splitter/Fields/House"]
+margin_left = 87.0
+margin_right = 510.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Rows" type="VBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection"]
+margin_top = 42.0
+margin_right = 510.0
+margin_bottom = 496.0
+size_flags_vertical = 3
+custom_constants/separation = 6
+
+[node name="R1" type="HBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows"]
+margin_right = 510.0
+margin_bottom = 147.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="Blood" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R1"]
+margin_right = 123.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Breath" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R1"]
+margin_left = 128.0
+margin_right = 252.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Doom" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R1"]
+margin_left = 257.0
+margin_right = 381.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R1"]
+margin_left = 386.0
+margin_right = 510.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="R2" type="HBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows"]
+margin_top = 153.0
+margin_right = 510.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Hope" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R2"]
+margin_right = 124.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Life" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R2"]
+margin_left = 128.0
+margin_right = 253.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R2"]
+margin_left = 257.0
+margin_right = 381.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mind" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R2"]
+margin_left = 385.0
+margin_right = 510.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="R3" type="HBoxContainer" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows"]
+margin_top = 306.0
+margin_right = 510.0
+margin_bottom = 454.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Rage" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R3"]
+margin_right = 124.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="Space" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R3"]
+margin_left = 128.0
+margin_right = 253.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R3"]
+margin_left = 257.0
+margin_right = 381.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Void" type="TextureButton" parent="Splitter/LeftPanel/VBoxContainer/Panel/Selection/Rows/R3"]
+margin_left = 385.0
+margin_right = 510.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( -415.824, -274.729 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatArea" type="Control" parent="Splitter/LeftPanel/VBoxContainer"]
+margin_top = 500.0
+margin_right = 510.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+
+[node name="RightPanel" type="VBoxContainer" parent="Splitter"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerListArea" type="Control" parent="Splitter/RightPanel"]
+margin_right = 510.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerList" type="VBoxContainer" parent="Splitter/RightPanel/PlayerListArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fields" type="VBoxContainer" parent="Splitter/RightPanel/PlayerListArea/PlayerList"]
+margin_right = 510.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="FieldsList" type="HBoxContainer" parent="Splitter/RightPanel/PlayerListArea/PlayerList/Fields"]
+margin_right = 510.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="Splitter/RightPanel/PlayerListArea/PlayerList/Fields/FieldsList"]
+margin_top = 5.0
+margin_right = 167.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Name"
+align = 1
+
+[node name="Class" type="Label" parent="Splitter/RightPanel/PlayerListArea/PlayerList/Fields/FieldsList"]
+margin_left = 171.0
+margin_top = 5.0
+margin_right = 338.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Class"
+align = 1
+
+[node name="Aspect" type="Label" parent="Splitter/RightPanel/PlayerListArea/PlayerList/Fields/FieldsList"]
+margin_left = 342.0
+margin_top = 5.0
+margin_right = 510.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Aspect"
+align = 1
+
+[node name="StartGameButton" type="Button" parent="Splitter/RightPanel"]
+margin_top = 580.0
+margin_right = 510.0
+margin_bottom = 600.0

@@ -1,0 +1,48 @@
+[gd_scene format=2]
+
+[node name="PlayerListItem" type="VBoxContainer"]
+margin_top = 29.0
+margin_right = 510.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar" type="HBoxContainer" parent="."]
+margin_right = 510.0
+margin_bottom = 14.0
+
+[node name="Name" type="Label" parent="Bar"]
+margin_right = 167.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dave Strider"
+align = 1
+
+[node name="Class" type="Label" parent="Bar"]
+margin_left = 171.0
+margin_right = 338.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Knight"
+align = 1
+
+[node name="Aspect" type="Label" parent="Bar"]
+margin_left = 342.0
+margin_right = 510.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Time"
+align = 1
+
+[node name="Control" type="Control" parent="."]
+margin_top = 19.0
+margin_right = 510.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

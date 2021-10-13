@@ -12,28 +12,34 @@ using Godot;
 public class Quad : Spatial
 {
     //public static Dictionary<int, float> LODLevels;
-    private float[] _LODLevels;
-    static Color[] ChildColors = new Color[4] {
+    protected float[] _LODLevels;
+    /*static Color[] ChildColors = new Color[4] {
         new Color(1, 0, 0, 1),
         new Color(0, 1, 0, 1),
         new Color(0, 0, 1, 1),
         new Color(1, 1, 0, 1)
+    };*/
+
+    protected static Color[] ChildColors = new Color[4] {
+        new Color(1, 1, 1, 1),
+        new Color(1, 1, 1, 1),
+        new Color(1, 1, 1, 1),
+        new Color(1, 1, 1, 1)
     };
 
-    const int CHILD_COUNT = 4;
-    MeshInstance MeshNode;
-    Spatial ChildNode;
-    Spatial[] LODPoints;
+    protected const int CHILD_COUNT = 4;
+    protected MeshInstance MeshNode;
+    protected Spatial ChildNode;
+    protected Spatial[] LODPoints;
     
-
-    private int _size;
-    private Color _color;
-    private int _depth;
-    private Quad _parent;
-    private Spatial _lodtarget;
-    private Vector3 centreOfMesh;
-    private Vector3[] _corners;
-    private Vector3[][] childCorners;
+    protected int _size;
+    protected Color _color;
+    protected int _depth;
+    protected Quad _parent;
+    protected Spatial _lodtarget;
+    protected Vector3 centreOfMesh;
+    protected Vector3[] _corners;
+    protected Vector3[][] childCorners;
 
     // Subdivide/merge vote
     private bool voteToMerge;
@@ -51,9 +57,12 @@ public class Quad : Spatial
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        MeshNode = new MeshInstance();
-        MeshNode.Name = Name + "_Mesh";
-        MeshNode.MaterialOverride = ResourceLoader.Load<ShaderMaterial>("res://Planet/Default.tres");
+        if (MeshNode == null) {
+            MeshNode = new MeshInstance();
+            MeshNode.Name = Name + "_Mesh";
+            MeshNode.MaterialOverride = ResourceLoader.Load<ShaderMaterial>("res://Planet/Default.tres");
+        }
+
 
         ChildNode = new Spatial();
         ChildNode.Name = Name + "_Children";
@@ -150,7 +159,7 @@ public class Quad : Spatial
         }
         //base._Process(delta);
     }
-    public Vector3[] ConstructMesh()
+    public virtual Vector3[] ConstructMesh()
     {
         // (1, 0, 0) -> (0, 0, -1)
         Vector3[] vertices = new Vector3[_size * _size];
@@ -242,7 +251,7 @@ public class Quad : Spatial
     public int Index(int x, int y) {
         return x + y * _size;
     }
-    public void Subdivide()
+    public virtual void Subdivide()
     {
         for (int i = 0; i < CHILD_COUNT; i ++) {
             var child = new Quad(this, _lodtarget, _size, _depth + 1, childCorners[i], ChildColors[i], _LODLevels);
@@ -251,7 +260,7 @@ public class Quad : Spatial
         }
         MeshNode.Visible = false;
     }
-    public void Merge() 
+    public virtual void Merge() 
     {
         foreach (Node child in ChildNode.GetChildren()) {
             child.QueueFree();

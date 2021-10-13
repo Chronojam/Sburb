@@ -3,23 +3,14 @@ using Godot;
 
 public class PlayerPlanet : Planet {
     RandomNumberGenerator randomNumberGenerator;
-    public PlayerPlanet(RandomNumberGenerator rand, PlayerInfo playerInfo) {
-        this.randomNumberGenerator = rand;
+    public PlayerPlanet(int seed, PlayerInfo playerInfo) {
+        this.randomNumberGenerator = new RandomNumberGenerator();
+        this.randomNumberGenerator.Seed = (ulong)seed;
 
-        var first = elementWord(playerInfo.Element);
-        var second = aspectWord(playerInfo.Aspect);
+        var first = playerInfo.SelectedElementSynonym.Name;
+        var second = playerInfo.SelectedAspectSynonym.Name;
+
         this.Name = $"Land of {first} and {second}";
-    }
-
-    private string elementWord(ClassicalElement e) {
-        // Pick one of the synonyms at random.
-        var index = randomNumberGenerator.RandiRange(0, e.Synonyms.Count - 1);
-        return e.Synonyms[index].Name;
-    }
-
-    private string aspectWord(PlayerAspect a) {
-        var index = randomNumberGenerator.RandiRange(0, a.Synonyms.Count - 1);
-        return a.Synonyms[index].Name;
     }
 };
 

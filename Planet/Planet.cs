@@ -3,7 +3,7 @@ using System;
 
 public abstract class Planet : Spatial
 {
-    (Vector3 up, Vector3 forward, Vector3 right)[] Faces = {
+    protected (Vector3 up, Vector3 forward, Vector3 right)[] Faces = {
         (Vector3.Up, Vector3.Forward, Vector3.Right),
         (Vector3.Down, Vector3.Left, Vector3.Back),
         (Vector3.Left, Vector3.Forward, Vector3.Up),
@@ -12,8 +12,7 @@ public abstract class Planet : Spatial
         (Vector3.Back, Vector3.Right, Vector3.Down)
     };
 
-    private String _name;
-    private PlanetaryInfluence _inflence;
+    protected PlanetaryInfluence _inflence;
     public Planet() {
         Defaults();
     }
@@ -29,15 +28,6 @@ public abstract class Planet : Spatial
             (a - b - c),
             (a + b - c), 
         };
-    }
-    public override void _Process(float delta)
-    {
-        if (Engine.EditorHint)
-        {
-            foreach(Node child in GetChildren()) {
-                child._Process(delta);
-            }
-        }
     }
 
     public override void _Ready()
