@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+using Godot.Collections;
 
 public class BreathAspect : PlayerAspect {
     public override string Name => "Breath";
-    public override List<PlayerAspectSynonym> Synonyms => new List<PlayerAspectSynonym>() {
+    public override Array<PlayerAspectSynonym> Synonyms => new Array<PlayerAspectSynonym>() {
     }; // This is really hard as its so abstract.
 };

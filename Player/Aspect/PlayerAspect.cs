@@ -1,8 +1,8 @@
-using System.Collections.Generic;
 using Godot;
+using Godot.Collections;
 public abstract class PlayerAspect : Object {
     public virtual string Name { get; }
-    public virtual List<PlayerAspectSynonym> Synonyms { get;}
+    public virtual Array<PlayerAspectSynonym> Synonyms { get;}
 
     public virtual string ToSerializable => this.Name;
 
@@ -38,6 +38,16 @@ public abstract class PlayerAspect : Object {
     }
 };
 
-public abstract class PlayerAspectSynonym : Object {
+public abstract class PlayerAspectSynonym : Object, IPlanetaryModifier {
     public virtual string Name { get; }
+
+    private RandomNumberGenerator randomNumberGenerator;
+    private OpenSimplexNoise noiseGenerator;
+
+    public virtual void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n) {
+        randomNumberGenerator = r;
+        noiseGenerator = n;
+    }
+
+    public abstract void QuadMod(Quad parent, Vector3 position, Point iteration);
 }

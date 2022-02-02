@@ -1,11 +1,21 @@
-using System.Collections.Generic;
+using Godot;
+using Godot.Collections;
 
 public class SpaceAspect : PlayerAspect {
     public override string Name => "Space";
-    public override List<PlayerAspectSynonym> Synonyms => new List<PlayerAspectSynonym>() {
-        new PlayerAspectSynonymFrogs() // Its always frogs for space players.
+    public override Array<PlayerAspectSynonym> Synonyms => new Array<PlayerAspectSynonym>() {
+        new PlayerAspectSynonymFrogs()
     };
 };
 public class PlayerAspectSynonymFrogs : PlayerAspectSynonym {
     public override string Name => "Frogs";
+
+    public override void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n)
+    {
+        
+    }
+    public override void QuadMod(Quad parent, Vector3 position, Point iteration)
+    {
+        
+    }
 }

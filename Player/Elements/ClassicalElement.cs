@@ -27,5 +27,13 @@ public abstract class ClassicalElement : Object {
 public abstract class ClassicalElementSynonym : Object, IPlanetaryModifier {
     public virtual string Name { get; }
 
-    public abstract void Mod(Planet p);
+    private RandomNumberGenerator numberGenerator;
+    private OpenSimplexNoise noiseGenerator;
+
+    // Allows modification of planet parameters during construction
+    public virtual void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n) {
+        numberGenerator = r;
+        noiseGenerator = n;
+    }
+    public abstract void QuadMod(Quad parent, Vector3 position, Point iteration);
 }

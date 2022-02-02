@@ -1,4 +1,5 @@
 using Godot.Collections;
+using Godot;
 
 public class ClassicalElementEarth : ClassicalElement {
     public override string Name => "Earth"; 
@@ -15,21 +16,33 @@ public class ClassicalElementEarth : ClassicalElement {
     
 }public class ClassicalElementSynonymDust : ClassicalElementSynonym {
     public override string Name => "Dust";
-    public override void Mod(Planet p)
+    public override void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n)
+    {
+        
+    }
+    public override void QuadMod(Quad parent, Vector3 position, Point iteration)
     {
         
     }
 }
 public class ClassicalElementSynonymSand : ClassicalElementSynonym {
     public override string Name => "Sand";
-    public override void Mod(Planet p)
+    public override void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n)
+    {
+        
+    }
+    public override void QuadMod(Quad parent, Vector3 position, Point iteration)
     {
         
     }
 }
 public class ClassicalElementSynonymClay : ClassicalElementSynonym {
     public override string Name => "Clay";
-    public override void Mod(Planet p)
+    public override void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n)
+    {
+        
+    }
+    public override void QuadMod(Quad parent, Vector3 position, Point iteration)
     {
         
     }
@@ -37,7 +50,11 @@ public class ClassicalElementSynonymClay : ClassicalElementSynonym {
 public class ClassicalElementSynonymLoam : ClassicalElementSynonym {
     
     public override string Name => "Loam";
-    public override void Mod(Planet p)
+    public override void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n)
+    {
+        
+    }
+    public override void QuadMod(Quad parent, Vector3 position, Point iteration)
     {
         
     }
@@ -45,7 +62,11 @@ public class ClassicalElementSynonymLoam : ClassicalElementSynonym {
 public class ClassicalElementSynonymBoulders : ClassicalElementSynonym {
     public override string Name => "Boulders";
 
-    public override void Mod(Planet p)
+    public override void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n)
+    {
+        
+    }
+    public override void QuadMod(Quad parent, Vector3 position, Point iteration)
     {
         
     }
@@ -53,7 +74,11 @@ public class ClassicalElementSynonymBoulders : ClassicalElementSynonym {
 public class ClassicalElementSynonymGravel : ClassicalElementSynonym {
     public override string Name => "Gravel";
 
-    public override void Mod(Planet p)
+    public override void ConstructionMod(RandomNumberGenerator r, OpenSimplexNoise n)
+    {
+        
+    }
+    public override void QuadMod(Quad parent, Vector3 position, Point iteration)
     {
         
     }

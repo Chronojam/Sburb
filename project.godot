@@ -11,13 +11,14 @@ config_version=4
 [application]
 
 config/name="Sburb"
-run/main_scene="res://Session/ServerPlayerComponents/ServerScreen.tscn"
+run/main_scene="res://Foo.tscn"
 config/icon="res://icon.png"
 
 [global]
 
 gravity=false
 scene=false
+mono=false
 
 [input]
 

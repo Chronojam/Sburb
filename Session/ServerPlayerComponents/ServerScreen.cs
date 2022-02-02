@@ -175,6 +175,8 @@ public class ServerScreen : Spatial
         _selectedTileId = id;
         _selectedTile = Tiles[id].Instance<ServerEditorObject>();
 
+        Grids[_selectedFloor].AddChild(_selectedTile);
+
         // Give our 'cursor' building a green texture for now.
         EvaluateColor();
         _selectedTile.EditorArea.Connect("body_entered", this, "Collision_BodyEntered");
@@ -183,7 +185,7 @@ public class ServerScreen : Spatial
         _selectedTile.EditorAreaSupport.Connect("body_entered", this, "Support_BodyEntered");
         _selectedTile.EditorAreaSupport.Connect("body_exited", this, "Support_BodyExited");
 
-        Grids[_selectedFloor].AddChild(_selectedTile);
+        
     }
     public void SelectFloor(int id) {
         foreach(ServerScreenFloor flr in Grids) {

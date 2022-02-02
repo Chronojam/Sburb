@@ -21,6 +21,9 @@ public class StandardSession : Session
         int seed = 1000;
         random.Seed = (ulong)seed;
         var p = new List<PlayerInfo>();
+        var pinfo = new PlayerInfo(new Page(), new DoomAspect(), new ClassicalElementAir());
+        pinfo.Init(seed);
+        p.Add(pinfo);
         /*p.Add(new PlayerInfo(new Page(), new DoomAspect(), new ClassicalElementAir(), seed));
         p.Add(new PlayerInfo(new Heir(), new SpaceAspect(), new ClassicalElementEarth(), seed));
         p.Add(new PlayerInfo(new Rogue(), new VoidAspect(), new ClassicalElementWater(), seed));

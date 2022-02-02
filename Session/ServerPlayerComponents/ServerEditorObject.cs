@@ -16,22 +16,12 @@ public class ServerEditorObject : Spatial
     public Area EditorAreaSupport {get; private set; }
     public Area EditorArea { get; private set; }
 
-
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-
         EditorArea = GetNode<Area>(EditorAreaPath);
-        EditorArea.Connect("body_entered", this, "Collision_BodyEntered");
-        EditorArea.Connect("body_exited", this, "Collision_BodyExited");
-
         EditorAreaSupport = GetNode<Area>(EditorAreaSupportPath);
-        EditorAreaSupport.Connect("body_entered", this, "Support_BodyEntered");
-        EditorAreaSupport.Connect("body_exited", this, "Support_BodyExited");
     }
-
-
-
 
     public void DropEditorComponents() {
         EditorAreaSupport.QueueFree();
